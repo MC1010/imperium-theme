@@ -1,0 +1,16 @@
+description = "Collapsable Card"
+==
+<div class="card shadow mb-4">
+    {% set id = now|date('u') %}
+    
+    <!-- Card Header - Accordion -->
+    <a href="#" class="d-block card-header py-3" data-toggle="collapse" aria-expanded="true" data-target="#id_{{ id }}" aria-controls="{{ id }}">
+        <h6 class="m-0 font-weight-bold text-primary">{{ label }}</h6>
+    </a>
+    <!-- Card Content - Collapse -->
+    <div class="collapse show" id="id_{{ id }}">
+        <div class="card-body">
+            {{ content|raw }}
+        </div>
+    </div>
+</div>

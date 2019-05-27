@@ -1,0 +1,16 @@
+description = "Topbar Menu Item"
+==
+{% if type == "dropdown" %}
+    {% set dropdown = true %}
+{% else %}
+    {% set dropdown = false %}
+{% endif %}
+
+<a class="nav-link {% if dropdown %}dropdown-toggle{% endif %}" href="{% if dropdown %}#{% else %}{{ link }}{% endif %}" id="{{ id }}" {% if dropdown %}role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"{% endif %}>
+    <i class="fas {{ icon }} fa-fw"></i>
+    
+    {% if not badge == "0" %}
+        <!-- Counter Badge -->
+        <span class="badge badge-danger badge-counter">{{ badge }}</span>
+    {% endif %}
+</a>

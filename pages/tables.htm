@@ -1,0 +1,16 @@
+title = "Tables"
+url = "/tables"
+layout = "default"
+is_hidden = 0
+==
+{% partial 'ui/page-header' page_title=this.page.title %}
+
+<p class="mb-4">
+    DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.
+</p>
+
+<!-- DataTales Example -->
+{% partial 'cards/table' label="DataTables Example" headers=["Name", "Position", "Office", "Age", "Start Date", "Salary"] data=[
+        ["Tiger Nixon", "System Architect", "Edinburgh", "61", "2011/04/25", "$320,800"],
+        ["Airi Satou", "Accountant", "Tokyo", "33", "2008/07/28", "$162,700"]
+    ] %}

@@ -1,0 +1,34 @@
+description = "Sidebar Menu Item"
+==
+{% set current_page = this.page.id|replace({'-': '/'}) %}
+{% set active = false %}
+
+{% if children is not empty %}
+    {% for child in children %}
+        {% if child.page_id == current_page %}
+            {% set active = true %}
+        {% endif %}
+    {% endfor %}
+    
+    <li class="nav-item {% if active %}active{% endif %}">
+        <a class="nav-link {% if not active %}collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#{{ id }}" aria-expanded="{% if active %}true{% else %}false{% endif %}" aria-controls="{{ id }}">
+            <i class="fas fa-fw {{ icon }}"></i>
+            <span>{{ label }}</span>
+        </a>
+        <div id="{{ id }}" class="collapse {% if active %}show{% endif %}" aria-labelledby="headingTwo">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                {% for child in children %}
+                    <a class="collapse-item {% if current_page == child.page_id %}active{% endif %}" href="{% if child.url is not empty %}{{ child.url }}{% else %}{{ child.page_id|page }}{% endif %}">{{ child.label }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </li>
+{% else %}
+    <li class="nav-item {% if current_page == page_id %}active{% endif %}">
+        <a class="nav-link" href="{% if url is not empty %}{{ url }}{% else %}{{ page_id|page }}{% endif %}">
+            <i class="fas fa-fw {{ icon }}"></i>
+            <span>{{ label }}</span>
+        </a>
+    </li>
+{% endif %}

@@ -1,0 +1,31 @@
+title = "Charts"
+url = "/charts"
+layout = "default"
+is_hidden = 0
+==
+{% partial 'ui/page-header' page_title=this.page.title %}
+
+<p class="mb-4">
+    Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.
+</p>
+
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+        
+        {% partial "cards/area-chart" label="Area Chart" menu=[{"label": "Action", "url": "#"}, {"label": "Another Action", "url": "#"}] xlabels=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] data=[0, 10000, 20000, 30000, 20000, 15000, 20000, 22000, 20000, 15000, 25000, 40000] ylabel="Dollars" text="The data for area charts is passed through a partial into the page. The partial file can be found under <code>cards/area-chart</code>. Check Chart.js and theme documentation for more information" %}
+        
+        {% partial "cards/bar-chart" label="Bar Chart" menu=[{"label": "Action", "url": "#"}, {"label": "Another Action", "url": "#"}] xlabels=["Jan", "Feb", "Mar", "Apr", "May", "Jun"] data=[11000, 10000, 20000, 30000, 20000, 15000] ylabel="Revenue" text="The data for area charts is passed through a partial into the page. The partial file can be found under <code>cards/bar-chart</code>. Check Chart.js and theme documentation for more information" %}
+        
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+    
+        {% partial "cards/pie-chart" label="Pie Chart" menu=[{"label": "Action", "url": "#"}, {"label": "Another Action", "url": "#"}] categories=["Direct", "Social", "Referral", "Testing1", "Testing2"] data=[20, 20, 20, 20, 20] type="doughnut" text="The partial file can be found under <code>cards/pie-chart</code>. Check Chart.js and theme documentation for more information" %}
+    
+    </div>
+
+</div>

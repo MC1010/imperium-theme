@@ -1,0 +1,26 @@
+description = "Topbar Dropdown Item"
+==
+<a class="dropdown-item d-flex align-items-center" href="{{ link }}">
+    {% if icon is not null %}
+    
+        <div class="mr-3">
+            <div class="icon-circle {{ bgcolor }}">
+                <i class="fas {{ icon }} text-white"></i>
+            </div>
+        </div>
+        
+    {% else %}
+            
+        <div class="dropdown-list-image mr-3">
+            <img class="rounded-circle" src="{{ img }}" alt="">
+            {% if indicator is not null %}
+                <div class="status-indicator {{ indicator }}"></div>
+            {% endif %}
+        </div>
+        
+    {% endif %}
+    <div>
+        <div class="small text-gray-500">{{ subline }}</div>
+        <div class="{% if bold %}font-weight-bold{% endif %} {% if truncate %}text-truncate{% endif %}">{{ message }}</div>
+    </div>
+</a>

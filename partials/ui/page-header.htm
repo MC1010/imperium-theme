@@ -1,0 +1,10 @@
+description = "Page Header"
+==
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">{{ page_title }}</h1>
+    
+    {% if btn_label is not null %}
+        <a href="{% if url is not empty %}{{ url }}{% else %}{{ page_id|page }}{% endif %}" class="d-none d-sm-inline-block btn btn-sm {{ bgcolor }} shadow-sm"><i class="fas {{ icon }} fa-sm text-white-50"></i> {{ btn_label }}</a>
+    {% endif %}
+</div>

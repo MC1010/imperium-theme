@@ -1,0 +1,83 @@
+description = "Pie Chart"
+==
+<div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">{{ label }}</h6>
+        <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                
+                {% for item in menu %}
+                    <a class="dropdown-item" href="{% if item.url is not empty %}{{ item.url }}{% else %}{{ item.page_id|page }}{% endif %}">{{ item.label }}</a>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+    <!-- Card Body -->
+    <div class="card-body">
+        <div class="chart-pie pt-4 pb-2">
+            {% set id = now|date('u') %}
+            <canvas id="{{ id }}"></canvas>
+        </div>
+        <div class="mt-4 text-center small">
+            
+            {% for name in categories %}
+                <span class="mr-2">
+                    <i class="fas fa-circle 
+                        {% if loop.index == 1 %}text-primary{% endif %}
+                        {% if loop.index == 2 %}text-success{% endif %}
+                        {% if loop.index == 3 %}text-info{% endif %}
+                        {% if loop.index == 4 %}text-warning{% endif %}
+                        {% if loop.index == 5 %}text-danger{% endif %}
+                    "></i> {{ name }}
+                </span>
+            {% endfor %}
+            
+        </div>
+        
+        {% if text is not null %}
+            <hr />
+            {{ text|raw }}
+        {% endif %}
+    </div>
+    
+    <script>
+    // Pie Chart Example
+    window.addEventListener('DOMContentLoaded', function() {
+        var ctx = document.getElementById("{{ id }}");
+        var myPieChart = new Chart(ctx, {
+            type: '{{ type }}',
+            data: {
+                labels: {{ categories|json_encode|raw }},
+                datasets: [{
+                    data: {{ data|json_encode|raw }},
+                    backgroundColor: ['#403798', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b'],
+                    
+                    hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                },
+                legend: {
+                    display: false
+                },
+                cutoutPercentage: 80,
+            },
+        });
+    });
+    </script>
+</div>

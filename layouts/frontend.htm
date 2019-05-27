@@ -1,0 +1,18 @@
+description = "Front End Layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial "system/head" %}
+    </head>
+
+    <body class="bg-gradient-primary">
+        {% page %}
+        
+        <!-- scripts -->
+        {% partial "system/scripts" %}
+        
+        {% framework extras %}
+        {% scripts %}
+    </body>
+</html>

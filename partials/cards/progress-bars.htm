@@ -1,0 +1,25 @@
+description = "Progress Bars"
+==
+<!-- Project Card Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{{ label }}</h6>
+    </div>
+    <div class="card-body">
+    
+        {% for bar in bars %}
+            <h4 class="small font-weight-bold">{{ bar.label }} <span class="float-right">
+                {% if bar.percent == 100 %}Complete!{% else %}{{ bar.percent }}%{% endif %}</span></h4>
+            <div class="progress mb-4">
+                <div class="progress-bar 
+                        {% if loop.index == 1 %}bg-primary{% endif %}
+                        {% if loop.index == 2 %}bg-success{% endif %}
+                        {% if loop.index == 3 %}bg-info{% endif %}
+                        {% if loop.index == 4 %}bg-warning{% endif %}
+                        {% if loop.index == 5 %}bg-danger{% endif %}
+                    " role="progressbar" style="width: {{ bar.percent }}%" aria-valuenow="{{ bar.percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>

@@ -1,0 +1,48 @@
+title = "Cards"
+url = "/cards"
+layout = "default"
+is_hidden = 0
+==
+{% partial 'ui/page-header' page_title=this.page.title %}
+
+<div class="row">
+
+    {% partial 'ui/title-card' icon="fa-calendar" label="Earnings (Monthly)" value="$40,000" color="primary" %}
+    
+    {% partial 'ui/title-card' icon="fa-dollar-sign" label="Earnings (Annual)" value="$215,000" color="success" %}
+    
+    {% partial 'ui/title-card' icon="fa-clipboard-list" label="Tasks" value="50%" color="info" progress="50" %}
+    
+    {% partial 'ui/title-card' icon="fa-comments" label="Pending Requests" value="18" color="warning" %}
+    
+</div>
+
+<div class="row">
+    
+    <div class="col-lg-6">
+
+        <!-- Default Card Example -->
+        <div class="card mb-4">
+            <div class="card-header">
+                Default Card Example
+            </div>
+            <div class="card-body">
+                This card uses Bootstrap's default styling with no utility classes added. Global styles are the only things modifying the look and feel of this default card example.
+            </div>
+        </div>
+        
+        <!-- Basic Card Example -->
+        {% partial "cards/basic-card" label="Basic Card Example" content="The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!" %}
+    
+    </div>
+    
+    <div class="col-lg-6">
+
+        <!-- Dropdown Card Example -->
+        {% partial "cards/dropdown-card" label="Dropdown Card Example" content="Dropdown menus can be placed in the card header in order to extend the functionality of a basic card. In this dropdown card example, the Font Awesome vertical ellipsis icon in the card header can be clicked on in order to toggle a dropdown menu." menu=[{"label": "Action", "url": "#"}, {"label": "Another Action", "url": "#"}] %}
+        
+        <!-- Collapsable Card Example -->
+        {% partial "cards/collapsable-card" label="Collapsable Card Example" content="This is a collapsable card example using Bootstrap's built in collapse functionality. <strong>Click on the card header</strong> to see the card body collapse and expand!" %}
+    </div>
+    
+</div>

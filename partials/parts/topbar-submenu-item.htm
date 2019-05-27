@@ -1,0 +1,6 @@
+description = "Topbar Sub-Dropdown Item"
+==
+<a class="dropdown-item" href="{% if url is not empty %}{{ url }}{% else %}{{ page_id|page }}{% endif %}">
+    <i class="fas {{ icon }} fa-sm fa-fw mr-2 text-gray-400"></i>
+    {{ label }}
+</a>

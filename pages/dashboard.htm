@@ -1,0 +1,133 @@
+title = "Dashboard"
+url = "/dashboard"
+layout = "default"
+is_hidden = 0
+==
+{% partial 'ui/page-header' page_title=this.page.title icon="fa-download" bgcolor="btn-primary" url="#" btn_label="Generate Report" %}
+
+<div class="row">
+
+    {% partial 'ui/title-card' icon="fa-calendar" label="Earnings (Monthly)" value="$40,000" color="primary" %}
+    
+    {% partial 'ui/title-card' icon="fa-dollar-sign" label="Earnings (Annual)" value="$215,000" color="success" %}
+    
+    {% partial 'ui/title-card' icon="fa-clipboard-list" label="Tasks" value="50%" color="info" progress="50" %}
+    
+    {% partial 'ui/title-card' icon="fa-comments" label="Pending Requests" value="18" color="warning" %}
+    
+</div>
+
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+        
+        {% partial "cards/area-chart" label="Earnings Overview" menu=[{"label": "Action", "url": "#"}, {"label": "Another Action", "url": "#"}] xlabels=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] data=[0, 10000, 20000, 30000, 20000, 15000, 20000, 22000, 20000, 15000, 25000, 40000] ylabel="Dollars" %}
+        
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+    
+        {% partial "cards/pie-chart" label="Revenue Sources" menu=[{"label": "Action", "url": "#"}, {"label": "Another Action", "url": "#"}] categories=["Direct", "Social", "Referral", "Testing1", "Testing2"] data=[20, 20, 20, 20, 20] type="doughnut" %}
+    
+    </div>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Content Column -->
+    <div class="col-lg-6 mb-4">
+    
+        {% partial 'cards/progress-bars' label="Projects" bars=[{"label": "Server Migration", "percent": 20}, {"label": "Sales Tracking", "percent": 40}, {"label": "Customer Database", "percent": 60}, {"label": "Payout Details", "percent": 80}, {"label": "Account Setup", "percent": 100}] %}
+    
+        <!-- Color System -->
+        <div class="row">
+        
+            <div class="col-lg-6 mb-4">
+                <div class="card bg-primary text-white shadow">
+                    <div class="card-body">
+                        Primary
+                        <div class="text-white-50 small">#403798</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card bg-success text-white shadow">
+                    <div class="card-body">
+                        Success
+                        <div class="text-white-50 small">#1cc88a</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card bg-info text-white shadow">
+                    <div class="card-body">
+                        Info
+                        <div class="text-white-50 small">#36b9cc</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card bg-warning text-white shadow">
+                    <div class="card-body">
+                        Warning
+                        <div class="text-white-50 small">#f6c23e</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                        Danger
+                        <div class="text-white-50 small">#e74a3b</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card bg-secondary text-white shadow">
+                    <div class="card-body">
+                        Secondary
+                        <div class="text-white-50 small">#858796</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="col-lg-6 mb-4">
+
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="{{ "assets/img/undraw_posting_photo.svg"|theme}}" alt="">
+                </div>
+                <p>
+                    Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!
+                </p>
+                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+            </div>
+        </div>
+        
+        <!-- Approach -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+            </div>
+            <div class="card-body">
+                <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
+                <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

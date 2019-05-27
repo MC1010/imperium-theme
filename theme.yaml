@@ -1,0 +1,6 @@
+name: Imperium
+description: 'Responsive website dashboard made with Bootstrap 4'
+author: 'Webster Brothers'
+homepage: ''
+code: imperium
+form: config/fields.yaml

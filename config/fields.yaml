@@ -1,0 +1,163 @@
+tabs:
+  fields:
+
+    ####################################################
+    # Tab: Info
+    ####################################################
+    
+    info_section:
+      tab: Info
+      label: Info
+      type: section
+
+    site_name:
+      tab: Info
+      label: Site name
+      type: text
+      default: Imperium
+    
+    site_logo:
+      tab: Info
+      label: Brand Logo
+      type: mediafinder
+      mode: image
+      
+
+    ####################################################
+    # Tab: Styles
+    ####################################################
+    
+    style_section:
+      tab: Styles
+      label: Colors
+      type: section
+
+    primary_color:
+      tab: Styles
+      label: Primary Theme Color
+      type: colorpicker
+      availableColors: ["#f44336","#9c27b0","#2196f3","#cddc39","#ffc107","#607d8b","#db4e22","#2590a7","#a5b423","#f8fb3a"]
+      default: "#403798"
+      assetVar: 'primary-color'
+
+    background_section:
+      tab: Styles
+      label: Background
+      type: section
+    
+    login_page_background:
+      tab: Styles
+      label: Login Page Background
+      type: mediafinder
+      mode: image
+    
+    register_page_background:
+      tab: Styles
+      label: Register Page Background
+      type: mediafinder
+      mode: image
+    
+    recover_page_background:
+      tab: Styles
+      label: Forgot Password Page Background
+      type: mediafinder
+      mode: image
+
+
+    ####################################################
+    # Tab: Users
+    ####################################################
+    
+    user_section:
+      tab: Users
+      label: Login Page
+      type: section
+
+    user_login_buttons:
+      tab: Users
+      label: Login Buttons
+      type: repeater
+      prompt: Add another button
+      form:
+        fields:
+          user_login_button_icon:
+            label: Button Icon
+            type: text
+            span: left
+            placeholder: fa-home, fa-phone, fa-car
+          user_login_button_text:
+            label: Button Text
+            type: text
+            span: right
+            placeholder: This is a button
+          user_login_button_url:
+            label: Button Link
+            type: text
+            span: full
+          user_login_button_background_color:
+            label: Button Background Color
+            type: colorpicker
+            availableColors: ["#f44336","#9c27b0","#2196f3","#cddc39","#ffc107","#607d8b","#db4e22","#2590a7","#a5b423","#f8fb3a"]
+            span: left
+          user_login_button_foreground_color:
+            label: Button Text Color
+            type: colorpicker
+            availableColors: ["#f44336","#9c27b0","#2196f3","#cddc39","#ffc107","#607d8b","#db4e22","#2590a7","#a5b423","#f8fb3a"]
+            span: right
+           
+    register_section:
+      tab: Users
+      label: Registration Page
+      type: section
+      
+    register_allow:
+      tab: Users
+      label: Allow user registration
+      type: switch
+
+    register_login_buttons:
+      tab: Users
+      label: Register Buttons
+      type: repeater
+      prompt: Add another button
+      form:
+        fields:
+          register_login_button_icon:
+            label: Button Icon
+            type: text
+            span: left
+            placeholder: fa-home, fa-phone, fa-car
+          register_login_button_text:
+            label: Button Text
+            type: text
+            span: right
+            placeholder: This is a button
+          register_login_button_url:
+            label: Button Link
+            type: text
+            span: full
+          register_login_button_background_color:
+            label: Button Background Color
+            type: colorpicker
+            availableColors: ["#f44336","#9c27b0","#2196f3","#cddc39","#ffc107","#607d8b","#db4e22","#2590a7","#a5b423","#f8fb3a"]
+            span: left
+          register_login_button_foreground_color:
+            label: Button Text Color
+            type: colorpicker
+            availableColors: ["#f44336","#9c27b0","#2196f3","#cddc39","#ffc107","#607d8b","#db4e22","#2590a7","#a5b423","#f8fb3a"]
+            span: right
+
+    ####################################################
+    # Tab: Footer
+    ####################################################
+    
+    footer_section:
+      tab: Footer
+      label: Footer
+      type: section
+
+    copyright_name:
+      tab: Footer
+      label: Copyright Name
+      type: text
+      default: Webster Brothers

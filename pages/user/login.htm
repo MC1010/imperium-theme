@@ -1,0 +1,87 @@
+title = "Login"
+url = "/:code?"
+layout = "frontend"
+is_hidden = 0
+
+[login]
+redirect = "dashboard"
+paramCode = "code"
+forceSecure = 0
+showTitles = 0
+==
+<div class="container">
+
+	<!-- Outer Row -->
+	<div class="row justify-content-center">
+
+		<div class="col-xl-10 col-md-9">
+
+			<div class="card o-hidden border-0 shadow-lg my-5">
+				<div class="card-body p-0">
+					<!-- Nested Row within Card Body -->
+					<div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image">
+							{% if this.theme.login_page_background is empty %}
+                                <img src="{{ 'assets/img/login_page_600x800.jpg'|theme }}" />
+							{% else %}
+								<img src="{{ this.theme.login_page_background|media }}" />
+							{% endif %}
+                        </div>
+						<div class="col-lg-6">
+							<div class="p-5">
+								<div class="text-center mb-2">
+									{% if this.theme.site_logo is empty %}
+										<img src="{{ 'assets/img/imperium_logo.png'|theme }}" style="width: 100px" />
+									{% else %}
+										<img src="{{ this.theme.site_logo|media }}" style="width: 100px" />
+									{% endif %}
+								</div>
+								<div class="text-center">
+									<h1 class="h4 text-gray-900 mb-4">{{ this.theme.site_name }}</h1>
+								</div>
+								
+								<!-- Login Form -->
+								<div class="user">
+								    
+								    {% component "login" %}
+								    
+								</div>
+								<!-- ./login-form -->
+									
+								{% if this.theme.user_login_buttons > 1 %}
+									<hr>
+								{% endif %}
+                
+                                <div class="user">
+    								{% for button in this.theme.user_login_buttons %}
+    									<a href="{{ button.user_login_button_link }}" class="btn btn-user btn-block text-white" style="background-color: {{ button.user_login_button_background_color }}; color: {{ button.user_login_button_foreground_color }}">
+    										<i class="fab {{ button.user_login_button_icon }} fa-fw"></i> {{ button.user_login_button_text }}
+    									</a>
+    								{% endfor %}
+    							</div>
+								
+								<hr>
+								
+								<div class="text-center">
+									<a class="small" href="{{ 'user/forgotten-password'|page }}">Forgot Password?</a>
+								</div>
+                  
+								{% if this.theme.register_allow %}
+									<div class="text-center">
+										<a class="small" href="{{ 'user/register'|page }}">Create an Account!</a>
+									</div>
+								{% endif %}
+							</div>
+							<div class="copyright"> 
+							    <p>Copyright &copy; {{ this.theme.copyright_name }} {{ 'now'|date('Y') }}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

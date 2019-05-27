@@ -1,0 +1,67 @@
+description = "Dashboard Sidebar"
+==
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ 'dashboard'|page }}">
+            <div class="sidebar-brand-icon">
+				{% if this.theme.site_logo is empty %}
+					<img src="{{ 'assets/img/imperium_logo.png'|theme }}" />
+				{% else %}
+					<img src="{{ this.theme.site_logo|media }}" />
+				{% endif %}
+            </div>
+            <div class="sidebar-brand-text mx-3">{{ this.theme.site_name }}</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        {% partial "parts/sidebar-menu-item" label="Dashboard" icon="fa-tachometer-alt" page_id="dashboard" %}
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        
+        <!-- Heading -->
+        <div class="sidebar-heading">
+        Interface
+        </div>
+
+        <!-- Nav Item - Components Menu -->
+        {% partial "parts/sidebar-menu-item" label="Components" icon="fa-cog" id="section_one" children=[
+            {"label": "Buttons", "page_id": "components/buttons"},
+            {"label": "Cards", "page_id": "components/cards"},
+        ] %}
+
+        <!-- Nav Item - Utilities Menu -->
+        {% partial "parts/sidebar-menu-item" label="Utilities" icon="fa-wrench" id="section_two" children=[
+            {"label": "Colors", "page_id": "utilities/colors"},
+            {"label": "Borders", "page_id": "utilities/borders"},
+            {"label": "Animations", "page_id": "utilities/animations"},
+            {"label": "Others", "page_id": "utilities/other"},
+        ] %}
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Nav Item - Pages Menu -->
+        {% partial "parts/sidebar-menu-item" label="Pages" icon="fa-folder" id="section_three" children=[
+            {"label": "Not Found Page", "url": "/404"},
+            {"label": "Error Page", "url": "/error"}
+        ] %}
+
+        <!-- Nav Item - Charts -->
+        {% partial "parts/sidebar-menu-item" label="Charts" icon="fa-chart-area" page_id="charts" %}
+
+        <!-- Nav Item - Tables -->
+        {% partial "parts/sidebar-menu-item" label="Tables" icon="fa-table" page_id="tables" %}
+        
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+        
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+</ul>
